@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A90A398617CA3E8B0049607B /* YAMLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A933389016B2DC37007A8B78 /* YAMLKit.m */; };
+		A90A398717CA3E8B0049607B /* YKEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = A933389316B2DC37007A8B78 /* YKEmitter.m */; };
+		A90A398817CA3E8B0049607B /* YKParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A933389516B2DC37007A8B78 /* YKParser.m */; };
+		A90A398917CA3E8B0049607B /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = A933389A16B2DC51007A8B78 /* api.c */; };
+		A90A398A17CA3E8B0049607B /* dumper.c in Sources */ = {isa = PBXBuildFile; fileRef = A933389B16B2DC51007A8B78 /* dumper.c */; };
+		A90A398B17CA3E8B0049607B /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = A933389C16B2DC51007A8B78 /* emitter.c */; };
+		A90A398C17CA3E8B0049607B /* loader.c in Sources */ = {isa = PBXBuildFile; fileRef = A933389D16B2DC51007A8B78 /* loader.c */; };
+		A90A398D17CA3E8B0049607B /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = A933389E16B2DC51007A8B78 /* parser.c */; };
+		A90A398E17CA3E8B0049607B /* reader.c in Sources */ = {isa = PBXBuildFile; fileRef = A933389F16B2DC51007A8B78 /* reader.c */; };
+		A90A398F17CA3E8B0049607B /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = A93338A016B2DC51007A8B78 /* scanner.c */; };
+		A90A399017CA3E8B0049607B /* writer.c in Sources */ = {isa = PBXBuildFile; fileRef = A93338A116B2DC51007A8B78 /* writer.c */; };
+		A90A399217CA3E8B0049607B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A944B41F16B2D36800F4CD4D /* Foundation.framework */; };
 		A933389616B2DC37007A8B78 /* YAMLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A933389016B2DC37007A8B78 /* YAMLKit.m */; };
 		A933389716B2DC37007A8B78 /* YKEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = A933389316B2DC37007A8B78 /* YKEmitter.m */; };
 		A933389816B2DC37007A8B78 /* YKParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A933389516B2DC37007A8B78 /* YKParser.m */; };
@@ -22,6 +34,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		A90A399317CA3E8B0049607B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A944B41A16B2D36800F4CD4D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -34,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A90A399717CA3E8B0049607B /* libYAMLKit_OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libYAMLKit_OSX.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A933388F16B2DC37007A8B78 /* YAMLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YAMLKit.h; path = src/YAMLKit.h; sourceTree = SOURCE_ROOT; };
 		A933389016B2DC37007A8B78 /* YAMLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YAMLKit.m; path = src/YAMLKit.m; sourceTree = SOURCE_ROOT; };
 		A933389116B2DC37007A8B78 /* YKConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YKConstants.h; path = src/YKConstants.h; sourceTree = SOURCE_ROOT; };
@@ -58,6 +80,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A90A399117CA3E8B0049607B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A90A399217CA3E8B0049607B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A944B41916B2D36800F4CD4D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -92,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				A944B41C16B2D36800F4CD4D /* libYAMLKit.a */,
+				A90A399717CA3E8B0049607B /* libYAMLKit_OSX.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,9 +172,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A944B41B16B2D36800F4CD4D /* YAMLKit */ = {
+		A90A398417CA3E8B0049607B /* YAMLKit_OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A944B42A16B2D36800F4CD4D /* Build configuration list for PBXNativeTarget "YAMLKit" */;
+			buildConfigurationList = A90A399417CA3E8B0049607B /* Build configuration list for PBXNativeTarget "YAMLKit_OSX" */;
+			buildPhases = (
+				A90A398517CA3E8B0049607B /* Sources */,
+				A90A399117CA3E8B0049607B /* Frameworks */,
+				A90A399317CA3E8B0049607B /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YAMLKit_OSX;
+			productName = YAMLKit;
+			productReference = A90A399717CA3E8B0049607B /* libYAMLKit_OSX.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A944B41B16B2D36800F4CD4D /* YAMLKit_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A944B42A16B2D36800F4CD4D /* Build configuration list for PBXNativeTarget "YAMLKit_iOS" */;
 			buildPhases = (
 				A944B41816B2D36800F4CD4D /* Sources */,
 				A944B41916B2D36800F4CD4D /* Frameworks */,
@@ -153,7 +201,7 @@
 			);
 			dependencies = (
 			);
-			name = YAMLKit;
+			name = YAMLKit_iOS;
 			productName = YAMLKit;
 			productReference = A944B41C16B2D36800F4CD4D /* libYAMLKit.a */;
 			productType = "com.apple.product-type.library.static";
@@ -179,12 +227,31 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A944B41B16B2D36800F4CD4D /* YAMLKit */,
+				A944B41B16B2D36800F4CD4D /* YAMLKit_iOS */,
+				A90A398417CA3E8B0049607B /* YAMLKit_OSX */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A90A398517CA3E8B0049607B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A90A398617CA3E8B0049607B /* YAMLKit.m in Sources */,
+				A90A398717CA3E8B0049607B /* YKEmitter.m in Sources */,
+				A90A398817CA3E8B0049607B /* YKParser.m in Sources */,
+				A90A398917CA3E8B0049607B /* api.c in Sources */,
+				A90A398A17CA3E8B0049607B /* dumper.c in Sources */,
+				A90A398B17CA3E8B0049607B /* emitter.c in Sources */,
+				A90A398C17CA3E8B0049607B /* loader.c in Sources */,
+				A90A398D17CA3E8B0049607B /* parser.c in Sources */,
+				A90A398E17CA3E8B0049607B /* reader.c in Sources */,
+				A90A398F17CA3E8B0049607B /* scanner.c in Sources */,
+				A90A399017CA3E8B0049607B /* writer.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A944B41816B2D36800F4CD4D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -206,6 +273,36 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		A90A399517CA3E8B0049607B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				DSTROOT = /tmp/YAMLKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = YAMLKit_Prefix.pch;
+				HEADER_SEARCH_PATHS = "${PROJECT_DIR}/yaml-0.1.4/include";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = YAMLKit_OSX;
+				SDKROOT = macosx10.7;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A90A399617CA3E8B0049607B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				DSTROOT = /tmp/YAMLKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = YAMLKit_Prefix.pch;
+				HEADER_SEARCH_PATHS = "${PROJECT_DIR}/yaml-0.1.4/include";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = YAMLKit_OSX;
+				SDKROOT = macosx10.7;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		A944B42816B2D36800F4CD4D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -280,6 +377,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A90A399417CA3E8B0049607B /* Build configuration list for PBXNativeTarget "YAMLKit_OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A90A399517CA3E8B0049607B /* Debug */,
+				A90A399617CA3E8B0049607B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A944B41616B2D36800F4CD4D /* Build configuration list for PBXProject "YAMLKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -289,7 +395,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A944B42A16B2D36800F4CD4D /* Build configuration list for PBXNativeTarget "YAMLKit" */ = {
+		A944B42A16B2D36800F4CD4D /* Build configuration list for PBXNativeTarget "YAMLKit_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A944B42B16B2D36800F4CD4D /* Debug */,
