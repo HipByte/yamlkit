@@ -28,6 +28,7 @@ static BOOL _isBooleanFalse(NSString *aString);
     if(fileInput) {
         fclose(fileInput);
     }
+    [bufferInput release];
 	yaml_parser_delete(&parser);
     memset(&parser, 0, sizeof(parser));
 }
@@ -45,10 +46,10 @@ static BOOL _isBooleanFalse(NSString *aString);
 - (BOOL)readString:(NSString *)str
 {
     [self reset];
-    stringInput = [str UTF8String];
+    bufferInput = [[str dataUsingEncoding:NSUTF8StringEncoding] retain];
     readyToParse = yaml_parser_initialize(&parser);
     if(readyToParse) 
-		yaml_parser_set_input_string(&parser, (const unsigned char *)stringInput, [str length]);
+		yaml_parser_set_input_string(&parser, (const unsigned char *)[bufferInput bytes], [bufferInput length]);
     return readyToParse;
 }
 
@@ -222,6 +223,7 @@ static BOOL _isBooleanFalse(NSString *aString);
 {
 	yaml_parser_delete(&parser);
 	if(fileInput != NULL) fclose(fileInput);
+    [bufferInput release];
 	[super finalize];
 }
 
@@ -229,6 +231,7 @@ static BOOL _isBooleanFalse(NSString *aString);
 {
 	yaml_parser_delete(&parser);
 	if(fileInput != NULL) fclose(fileInput);
+    [bufferInput release];
     [super dealloc];
 }
 
