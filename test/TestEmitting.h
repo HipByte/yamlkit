@@ -21,5 +21,6 @@
 - (void)testIndentation;
 - (void)testEscapingUnicodeCharacters;
 - (void)testLineWidthModification;
+- (void)testNonASCIIScalar;
 
 @end
