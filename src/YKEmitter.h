@@ -15,6 +15,8 @@
 	NSStringEncoding encoding;
 }
 
+- (void)setUnicode:(BOOL)unicode;
+
 - (void)emitItem:(id)item;
 - (NSString *)emittedString;
 - (NSData *)emittedData;

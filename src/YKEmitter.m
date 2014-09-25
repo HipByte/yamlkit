@@ -87,6 +87,11 @@
 	return [NSData dataWithData:buffer];
 }
 
+- (void)setUnicode:(BOOL)unicode
+{
+    yaml_emitter_set_unicode(&emitter, unicode);
+}
+
 - (void)setEncoding:(NSStringEncoding)newEnc
 {
 	encoding = newEnc;
