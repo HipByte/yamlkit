@@ -42,4 +42,19 @@
 	STAssertEqualObjects([derived substringFromIndex:1], expected, @"choked when given a UTF-16 encoding.");
 }
 
+- (void)testNonASCIIScalar
+{
+	[e emitItem:@"\u0444\u044B\u0432\u0430"];
+	NSString *str = [e emittedString];
+	STAssertEqualObjects(str, @"\"\\u0444\\u044B\\u0432\\u0430\"\n", @"Did not outputted non-ascii text.");
+}
+
+- (void)testNonASCIIScalarWithUnicode
+{
+    [e setUnicode:YES];
+	[e emitItem:@"\u0444\u044B\u0432\u0430"];
+	NSString *str = [e emittedString];
+	STAssertEqualObjects(str, @"\u0444\u044B\u0432\u0430\n", @"Did not outputted non-ascii text with unicode.");
+}
+
 @end

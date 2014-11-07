@@ -24,5 +24,6 @@
 - (void)testWhatHappensWhenParseIsCalledTwice;
 - (void)testDifferentEncodings;
 - (void)testWithCustomInputHandler;
+- (void)testParsingNonASCII;
 
 @end

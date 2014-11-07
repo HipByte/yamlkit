@@ -99,4 +99,12 @@
 	STAssertEqualObjects([e domain], @"YKErrorDomain", @"returned a different error domain");
 }
 
+- (void)testParsingNonASCII
+{
+    NSString *input = @"key: \"\\u0444\\u044B\\u0432\\u0430\"\n";
+    [p readString:input];
+	id o = [p parse];
+	STAssertEqualObjects([[o objectAtIndex:0] objectForKey:@"key"], @"\u0444\u044B\u0432\u0430", @"Did not parsed non-ascii text.");
+}
+
 @end

@@ -11,7 +11,7 @@
 @interface YKParser : NSObject {
 	BOOL readyToParse;
     FILE* fileInput;
-	const char *stringInput;
+	NSData *bufferInput;
     yaml_parser_t parser;
 }
 
