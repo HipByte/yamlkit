@@ -11,7 +11,7 @@
 
 - (void)setUp
 {
-	e = [[[YKEmitter alloc] init] autorelease];
+    e = [[[YKEmitter alloc] init] autorelease];
 }
 
 - (void)testSimpleEmitting
@@ -19,42 +19,42 @@
     [e emitItem:[NSArray arrayWithObjects:@"One", @"Two", @"Three", nil]];
     NSString *str = [e emittedString];
     NSString *expected = @"- One\n- Two\n- Three\n";
-	STAssertNotNil(str, @"Did not get a result from emitting");
+    STAssertNotNil(str, @"Did not get a result from emitting");
     STAssertEqualObjects(str, expected, @"Recieved incorrect result from emitting");
 }
 
 - (void)testExplicitDelimitation
 {
-	[e setUsesExplicitDelimiters:YES];
-	[e emitItem:[NSArray arrayWithObjects:@"One", @"Two", @"Three", nil]];
-	NSString *expected = @"---\n- One\n- Two\n- Three\n...\n";
-	STAssertEqualObjects([e emittedString], expected, @"Did not display document beginnings and endings correctly");
+    [e setUsesExplicitDelimiters:YES];
+    [e emitItem:[NSArray arrayWithObjects:@"One", @"Two", @"Three", nil]];
+    NSString *expected = @"---\n- One\n- Two\n- Three\n...\n";
+    STAssertEqualObjects([e emittedString], expected, @"Did not display document beginnings and endings correctly");
 }
 
 - (void)testDifferentEncodings
 {
-	[e setEncoding:NSUTF16BigEndianStringEncoding];
-	[e emitItem:[NSArray arrayWithObjects:@"One", @"Two", @"Three", nil]];
-	NSData *data = [e emittedData];
-	NSString *derived = [[NSString alloc] initWithData:data encoding:NSUTF16BigEndianStringEncoding];
-	NSString *expected = @"- One\n- Two\n- Three\n";
-	// the substringFromIndex is to ignore the UTF16 BOM
-	STAssertEqualObjects([derived substringFromIndex:1], expected, @"choked when given a UTF-16 encoding.");
+    [e setEncoding:NSUTF16BigEndianStringEncoding];
+    [e emitItem:[NSArray arrayWithObjects:@"One", @"Two", @"Three", nil]];
+    NSData *data = [e emittedData];
+    NSString *derived = [[NSString alloc] initWithData:data encoding:NSUTF16BigEndianStringEncoding];
+    NSString *expected = @"- One\n- Two\n- Three\n";
+    // the substringFromIndex is to ignore the UTF16 BOM
+    STAssertEqualObjects([derived substringFromIndex:1], expected, @"choked when given a UTF-16 encoding.");
 }
 
 - (void)testNonASCIIScalar
 {
-	[e emitItem:@"\u0444\u044B\u0432\u0430"];
-	NSString *str = [e emittedString];
-	STAssertEqualObjects(str, @"\"\\u0444\\u044B\\u0432\\u0430\"\n", @"Did not outputted non-ascii text.");
+    [e emitItem:@"\u0444\u044B\u0432\u0430"];
+    NSString *str = [e emittedString];
+    STAssertEqualObjects(str, @"\"\\u0444\\u044B\\u0432\\u0430\"\n", @"Did not outputted non-ascii text.");
 }
 
 - (void)testNonASCIIScalarWithUnicode
 {
     [e setUnicode:YES];
-	[e emitItem:@"\u0444\u044B\u0432\u0430"];
-	NSString *str = [e emittedString];
-	STAssertEqualObjects(str, @"\u0444\u044B\u0432\u0430\n", @"Did not outputted non-ascii text with unicode.");
+    [e emitItem:@"\u0444\u044B\u0432\u0430"];
+    NSString *str = [e emittedString];
+    STAssertEqualObjects(str, @"\u0444\u044B\u0432\u0430\n", @"Did not outputted non-ascii text with unicode.");
 }
 
 @end

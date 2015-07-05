@@ -10,12 +10,12 @@ items:
     quantity:  4
 
   - part_no:   E1628
-    descrip:   High Heeled "Ruby" Slippers 
+    descrip:   High Heeled "Ruby" Slippers
     price:     100.27
     quantity:  1
 
 bill-to:
-  street: | 
+  street: |
           123 Tornado Alley
           Suite 16
   city:   East Westville
@@ -24,5 +24,5 @@ bill-to:
 specialDelivery:  >
   Follow the Yellow Brick
   Road to the Emerald City.
-  Pay no attention to the 
+  Pay no attention to the
   man behind the curtain.

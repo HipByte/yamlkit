@@ -9,9 +9,9 @@
 #import "yaml.h"
 
 @interface YKParser : NSObject {
-	BOOL readyToParse;
+    BOOL readyToParse;
     FILE* fileInput;
-	NSData *bufferInput;
+    NSData *bufferInput;
     yaml_parser_t parser;
 }
 

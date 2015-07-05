@@ -9,7 +9,7 @@
 
 
 
-NSString *YKErrorDomain                = @"YKErrorDomain";
+NSString *YKErrorDomain                      = @"YKErrorDomain";
 const NSString *YKProblemValueKey            = @"YKProblemValue";
 const NSString *YKProblemOffsetKey           = @"YKProblemOffset";
 const NSString *YKProblemIndexKey            = @"YKProblemIndex";
