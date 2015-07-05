@@ -86,7 +86,10 @@ static BOOL _isBooleanFalse(NSString *aString);
             obj = [self _interpretObjectFromEvent:event];
             temp = [stack lastObject];
 
-            if([temp isKindOfClass:[NSArray class]]) {
+            if(temp == nil) {
+                [stack addObject:obj];
+                done = true;
+            } else if([temp isKindOfClass:[NSArray class]]) {
                 [temp addObject:obj];
             } else if([temp isKindOfClass:[NSDictionary class]]) {
                 [stack addObject:obj];
