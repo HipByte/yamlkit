@@ -183,12 +183,12 @@ static BOOL _isBooleanFalse(NSString *aString);
         NSScanner *scanner = [NSScanner scannerWithString:obj];
 
         // Integers are automatically casted unless given a !!str tag. I think.
-        if([scanner scanInt:NULL] && [scanner scanLocation] == [stringValue length]) {
-            obj = [NSNumber numberWithInt:[obj intValue]];
-            // FIXME: Boolean parsing here is not in accordance with the YAML standards.
-        } else if([scanner scanDouble:NULL] && [scanner scanLocation] == [stringValue length]) {
-            obj = [NSNumber numberWithDouble:[obj doubleValue]];
-        } else if(_isBooleanTrue((NSString *)obj)) {
+        id val = [self _convertToNumberFromString:stringValue];
+        if(val) {
+            return val;
+        }
+
+        if(_isBooleanTrue((NSString *)obj)) {
             obj = [NSNumber numberWithBool:YES];
         } else if(_isBooleanFalse((NSString *)obj)) {
             obj = [NSNumber numberWithBool:NO];
@@ -198,6 +198,45 @@ static BOOL _isBooleanFalse(NSString *aString);
         // TODO: add date parsing.
     }
     return obj;
+}
+
+- (NSNumber*)_convertToNumberFromString:(NSNumber*)string
+{
+    char *str = [string UTF8String];
+    long len = strlen(str);
+    bool is_hex = false;
+    bool is_float = false;
+
+    for(int i = 0; i < len; i++) {
+        char c = str[i];
+        if(!isdigit(c)) {
+            if(c == 'x' && !is_hex) {
+                is_hex = true;
+            } else if(c == '.' && !is_float) {
+                is_float = true;
+            } else if(is_hex && (('a' <= c && c <= 'f') || ('A' <= c && c <= 'F'))) {
+                continue;
+            } else {
+                return nil;
+            }
+        }
+    }
+
+    NSNumber *result = nil;
+    long value;
+    if(str[0] == '0' && !is_hex && !is_float) {
+        value = strtoll(str, NULL, 8);
+        result = [NSNumber numberWithLong:value];
+    } else if(is_hex) {
+        value = strtoll(str, NULL, 16);
+        result = [NSNumber numberWithLong:value];
+    } else if(is_float) {
+        result = [NSNumber numberWithDouble:[string doubleValue]];
+    } else {
+        result = [NSNumber numberWithLongLong:[string longLongValue]];
+    }
+
+    return result;
 }
 
 - (NSError *)_constructErrorFromParser:(yaml_parser_t *)p
