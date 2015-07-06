@@ -53,29 +53,6 @@ static BOOL _isBooleanFalse(NSString *aString);
     return readyToParse;
 }
 
-- (void)setObject:(id)obj In:(NSMutableArray *)stack WithError:(NSError **)e
-{
-    id temp = [stack lastObject];
-
-    if(temp == nil) {
-        [stack addObject:obj];
-    } else if([temp isKindOfClass:[NSArray class]]) {
-        [temp addObject:obj];
-    } else if([temp isKindOfClass:[NSDictionary class]]) {
-        [stack addObject:obj];
-    } else if([temp isKindOfClass:[NSString class]] || [temp isKindOfClass:[NSValue class]])  {
-        [temp retain];
-        [stack removeLastObject];
-        if(![[stack lastObject] isKindOfClass:[NSMutableDictionary class]]){
-            if(e != NULL) {
-                *e = [self _constructErrorFromParser:NULL];
-                return;
-            }
-        }
-        [[stack lastObject] setObject:obj forKey:temp];
-    }
-}
-
 - (NSArray *)parse
 {
     return [self parseWithError:NULL];
@@ -155,6 +132,29 @@ static BOOL _isBooleanFalse(NSString *aString);
         yaml_event_delete(&event);
     }
     return stack;
+}
+
+- (void)setObject:(id)obj In:(NSMutableArray *)stack WithError:(NSError **)e
+{
+    id temp = [stack lastObject];
+
+    if(temp == nil) {
+        [stack addObject:obj];
+    } else if([temp isKindOfClass:[NSArray class]]) {
+        [temp addObject:obj];
+    } else if([temp isKindOfClass:[NSDictionary class]]) {
+        [stack addObject:obj];
+    } else if([temp isKindOfClass:[NSString class]] || [temp isKindOfClass:[NSValue class]])  {
+        [temp retain];
+        [stack removeLastObject];
+        if(![[stack lastObject] isKindOfClass:[NSMutableDictionary class]]){
+            if(e != NULL) {
+                *e = [self _constructErrorFromParser:NULL];
+                return;
+            }
+        }
+        [[stack lastObject] setObject:obj forKey:temp];
+    }
 }
 
 // TODO: oof, add tag support.
