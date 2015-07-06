@@ -53,6 +53,29 @@ static BOOL _isBooleanFalse(NSString *aString);
     return readyToParse;
 }
 
+- (void)setObject:(id)obj In:(NSMutableArray *)stack WithError:(NSError **)e
+{
+    id temp = [stack lastObject];
+
+    if(temp == nil) {
+        [stack addObject:obj];
+    } else if([temp isKindOfClass:[NSArray class]]) {
+        [temp addObject:obj];
+    } else if([temp isKindOfClass:[NSDictionary class]]) {
+        [stack addObject:obj];
+    } else if([temp isKindOfClass:[NSString class]] || [temp isKindOfClass:[NSValue class]])  {
+        [temp retain];
+        [stack removeLastObject];
+        if(![[stack lastObject] isKindOfClass:[NSMutableDictionary class]]){
+            if(e != NULL) {
+                *e = [self _constructErrorFromParser:NULL];
+                return;
+            }
+        }
+        [[stack lastObject] setObject:obj forKey:temp];
+    }
+}
+
 - (NSArray *)parse
 {
     return [self parseWithError:NULL];
@@ -64,6 +87,8 @@ static BOOL _isBooleanFalse(NSString *aString);
     int done = 0;
     id obj, temp;
     NSMutableArray *stack = [NSMutableArray array];
+    NSMutableDictionary *anchor = [[NSMutableDictionary alloc] init];
+
     if(!readyToParse) {
         if(![[stack lastObject] isKindOfClass:[NSMutableDictionary class]]){
             if(e != NULL) {
@@ -84,25 +109,15 @@ static BOOL _isBooleanFalse(NSString *aString);
         switch(event.type) {
           case YAML_SCALAR_EVENT:
             obj = [self _interpretObjectFromEvent:event];
-            temp = [stack lastObject];
 
-            if(temp == nil) {
-                [stack addObject:obj];
-                done = true;
-            } else if([temp isKindOfClass:[NSArray class]]) {
-                [temp addObject:obj];
-            } else if([temp isKindOfClass:[NSDictionary class]]) {
-                [stack addObject:obj];
-            } else if([temp isKindOfClass:[NSString class]] || [temp isKindOfClass:[NSValue class]])  {
-                [temp retain];
-                [stack removeLastObject];
-                if(![[stack lastObject] isKindOfClass:[NSMutableDictionary class]]){
-                    if(e != NULL) {
-                        *e = [self _constructErrorFromParser:NULL];
-                        return nil;
-                    }
-                }
-                [[stack lastObject] setObject:obj forKey:temp];
+            [self setObject:obj In:stack WithError:e];
+            if (e != nil) {
+                return nil;
+            }
+
+            // anchor
+            if (event.data.scalar.anchor) {
+                [anchor setObject:obj forKey:[NSString stringWithUTF8String:event.data.scalar.anchor]];
             }
 
             break;
@@ -136,6 +151,15 @@ static BOOL _isBooleanFalse(NSString *aString);
                     }
                 }
                 [[stack lastObject] setObject:temp forKey:obj];
+            }
+            break;
+          case YAML_ALIAS_EVENT:
+            if (event.data.alias.anchor) {
+                id obj = [anchor objectForKey:[NSString stringWithUTF8String:event.data.alias.anchor]];
+                [self setObject:obj In:stack WithError:e];
+                if (e != nil) {
+                    return nil;
+                }
             }
             break;
           case YAML_NO_EVENT:
