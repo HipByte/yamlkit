@@ -210,7 +210,7 @@ static BOOL _isBooleanFalse(NSString *aString);
     for(int i = 0; i < len; i++) {
         char c = str[i];
         if(!isdigit(c)) {
-            if(c == 'x' && !is_hex) {
+            if(str[0] == '0' && c == 'x' && !is_hex) {
                 is_hex = true;
             } else if(c == '.' && !is_float) {
                 is_float = true;
