@@ -87,7 +87,7 @@ static BOOL _isBooleanFalse(NSString *aString);
           case YAML_SCALAR_EVENT:
             obj = [self _interpretObjectFromEvent:event];
 
-            [self setObject:obj In:stack WithError:e];
+            [self _setObject:obj In:stack WithError:e];
             if (e != nil) {
                 return nil;
             }
@@ -110,7 +110,7 @@ static BOOL _isBooleanFalse(NSString *aString);
             obj = [stack lastObject];
             [stack removeLastObject];
 
-            [self setObject:obj In:stack WithError:e];
+            [self _setObject:obj In:stack WithError:e];
             if (e != nil) {
                 return nil;
             }
@@ -118,7 +118,7 @@ static BOOL _isBooleanFalse(NSString *aString);
           case YAML_ALIAS_EVENT:
             if (event.data.alias.anchor) {
                 obj = [anchor objectForKey:[NSString stringWithUTF8String:event.data.alias.anchor]];
-                [self setObject:obj In:stack WithError:e];
+                [self _setObject:obj In:stack WithError:e];
                 if (e != nil) {
                     return nil;
                 }
@@ -134,7 +134,7 @@ static BOOL _isBooleanFalse(NSString *aString);
     return stack;
 }
 
-- (void)setObject:(id)obj In:(NSMutableArray *)stack WithError:(NSError **)e
+- (void)_setObject:(id)obj In:(NSMutableArray *)stack WithError:(NSError **)e
 {
     id temp = [stack lastObject];
 
