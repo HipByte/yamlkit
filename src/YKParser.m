@@ -65,6 +65,7 @@ static BOOL _isBooleanFalse(NSString *aString);
     id obj, temp;
     NSMutableArray *stack = [NSMutableArray array];
     NSMutableDictionary *anchor = [[NSMutableDictionary alloc] init];
+    NSString *anchor_name = nil; // for mapping, sequence
 
     if(!readyToParse) {
         if(![[stack lastObject] isKindOfClass:[NSMutableDictionary class]]){
@@ -92,18 +93,25 @@ static BOOL _isBooleanFalse(NSString *aString);
                 return nil;
             }
 
-            // anchor
             if (event.data.scalar.anchor) {
                 [anchor setObject:obj forKey:[NSString stringWithUTF8String:event.data.scalar.anchor]];
             }
-
             break;
+
           case YAML_SEQUENCE_START_EVENT:
             [stack addObject:[NSMutableArray array]];
+            if (event.data.sequence_start.anchor) {
+                anchor_name = [NSString stringWithUTF8String:event.data.sequence_start.anchor];
+            }
             break;
+
           case YAML_MAPPING_START_EVENT:
             [stack addObject:[NSMutableDictionary dictionary]];
+            if (event.data.mapping_start.anchor) {
+                anchor_name = [NSString stringWithUTF8String:event.data.mapping_start.anchor];
+            }
             break;
+
           case YAML_SEQUENCE_END_EVENT:
           case YAML_MAPPING_END_EVENT:
             // TODO: Check for retain count errors.
@@ -113,6 +121,11 @@ static BOOL _isBooleanFalse(NSString *aString);
             [self _setObject:obj In:stack WithError:e];
             if (e != nil) {
                 return nil;
+            }
+
+            if (anchor_name) {
+                [anchor setObject:obj forKey:anchor_name];
+                anchor_name = nil;
             }
             break;
           case YAML_ALIAS_EVENT:
@@ -124,8 +137,10 @@ static BOOL _isBooleanFalse(NSString *aString);
                 }
             }
             break;
+
           case YAML_NO_EVENT:
             break;
+
           default:
             break;
         }
