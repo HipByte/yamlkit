@@ -92,7 +92,6 @@ static BOOL _isBooleanFalse(NSString *aString);
             if (e != nil) {
                 return nil;
             }
-
             if (event.data.scalar.anchor) {
                 [anchor setObject:obj forKey:[NSString stringWithUTF8String:event.data.scalar.anchor]];
             }
@@ -128,6 +127,7 @@ static BOOL _isBooleanFalse(NSString *aString);
                 anchor_name = nil;
             }
             break;
+
           case YAML_ALIAS_EVENT:
             if (event.data.alias.anchor) {
                 obj = [anchor objectForKey:[NSString stringWithUTF8String:event.data.alias.anchor]];
