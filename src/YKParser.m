@@ -180,8 +180,6 @@ static BOOL _isBooleanFalse(NSString *aString);
     id obj = stringValue;
 
     if(event.data.scalar.style == YAML_PLAIN_SCALAR_STYLE) {
-        NSScanner *scanner = [NSScanner scannerWithString:obj];
-
         // Integers are automatically casted unless given a !!str tag. I think.
         id val = [self _convertToNumberFromString:stringValue];
         if(val) {
