@@ -183,11 +183,11 @@ static BOOL _isBooleanFalse(NSString *aString);
         NSScanner *scanner = [NSScanner scannerWithString:obj];
 
         // Integers are automatically casted unless given a !!str tag. I think.
-        if([scanner scanDouble:NULL] && [scanner scanLocation] == [stringValue length]) {
-            obj = [NSNumber numberWithDouble:[obj doubleValue]];
-        } else if([scanner scanInt:NULL] && [scanner scanLocation] == [stringValue length]) {
+        if([scanner scanInt:NULL] && [scanner scanLocation] == [stringValue length]) {
             obj = [NSNumber numberWithInt:[obj intValue]];
             // FIXME: Boolean parsing here is not in accordance with the YAML standards.
+        } else if([scanner scanDouble:NULL] && [scanner scanLocation] == [stringValue length]) {
+            obj = [NSNumber numberWithDouble:[obj doubleValue]];
         } else if(_isBooleanTrue((NSString *)obj)) {
             obj = [NSNumber numberWithBool:YES];
         } else if(_isBooleanFalse((NSString *)obj)) {
