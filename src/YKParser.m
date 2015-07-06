@@ -130,32 +130,17 @@ static BOOL _isBooleanFalse(NSString *aString);
           case YAML_SEQUENCE_END_EVENT:
           case YAML_MAPPING_END_EVENT:
             // TODO: Check for retain count errors.
-            temp = [stack lastObject];
+            obj = [stack lastObject];
             [stack removeLastObject];
 
-            id last = [stack lastObject];
-            if(last == nil) {
-                [stack addObject:temp];
-                break;
-            } else if([last isKindOfClass:[NSArray class]]) {
-                [last addObject:temp];
-            } else if ([last isKindOfClass:[NSDictionary class]]) {
-                [stack addObject:temp];
-            } else if ([last isKindOfClass:[NSString class]] || [last isKindOfClass:[NSNumber class]]) {
-                obj = [[stack lastObject] retain];
-                [stack removeLastObject];
-                if(![[stack lastObject] isKindOfClass:[NSMutableDictionary class]]){
-                    if(e != NULL) {
-                        *e = [self _constructErrorFromParser:NULL];
-                        return nil;
-                    }
-                }
-                [[stack lastObject] setObject:temp forKey:obj];
+            [self setObject:obj In:stack WithError:e];
+            if (e != nil) {
+                return nil;
             }
             break;
           case YAML_ALIAS_EVENT:
             if (event.data.alias.anchor) {
-                id obj = [anchor objectForKey:[NSString stringWithUTF8String:event.data.alias.anchor]];
+                obj = [anchor objectForKey:[NSString stringWithUTF8String:event.data.alias.anchor]];
                 [self setObject:obj In:stack WithError:e];
                 if (e != nil) {
                     return nil;
