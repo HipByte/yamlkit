@@ -8,6 +8,7 @@
 #import "YKParser.h"
 #import "YKConstants.h"
 
+#include "ruby.m"
 
 static BOOL _isBooleanTrue(NSString *aString);
 static BOOL _isBooleanFalse(NSString *aString);
@@ -105,7 +106,7 @@ static BOOL _isBooleanFalse(NSString *aString);
             break;
 
           case YAML_MAPPING_START_EVENT:
-            [stack addObject:[NSMutableDictionary dictionary]];
+            [stack addObject:yml_ruby_hash_new()];
             if (event.data.mapping_start.anchor) {
                 anchor_name = [NSString stringWithUTF8String:event.data.mapping_start.anchor];
             }
@@ -181,8 +182,11 @@ static BOOL _isBooleanFalse(NSString *aString);
 
     if(event.data.scalar.style == YAML_PLAIN_SCALAR_STYLE) {
         // Integers are automatically casted unless given a !!str tag. I think.
-        id val = [self _convertToNumberFromString:stringValue];
-        if(val) {
+        id val;
+        if(val = [self _convertToNumberFromString:stringValue]) {
+            return val;
+        }
+        if(val = [self _convertToSymbolFromString:stringValue]) {
             return val;
         }
 
@@ -196,6 +200,15 @@ static BOOL _isBooleanFalse(NSString *aString);
         // TODO: add date parsing.
     }
     return obj;
+}
+
+- (id)_convertToSymbolFromString:(NSString*)string
+{
+    char *str = [string UTF8String];
+    if(str[0] != ':' || strlen(str) <= 1) {
+        return nil;
+    }
+    return yml_ruby_cstr2sym(&str[1]);
 }
 
 - (NSNumber*)_convertToNumberFromString:(NSString*)string
