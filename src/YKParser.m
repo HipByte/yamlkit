@@ -198,7 +198,7 @@ static BOOL _isBooleanFalse(NSString *aString);
     return obj;
 }
 
-- (NSNumber*)_convertToNumberFromString:(NSNumber*)string
+- (NSNumber*)_convertToNumberFromString:(NSString*)string
 {
     char *str = [string UTF8String];
     long len = strlen(str);
