@@ -7,6 +7,8 @@
 
 #import "YKEmitter.h"
 
+#include "ruby.m"
+
 @interface YKEmitter (YKEmitterPrivateMEthods)
 
 - (int)_writeItem:(id)item toDocument:(yaml_document_t *)document;
@@ -71,7 +73,18 @@
     } else {
         // TODO: Add optional support for tagging emitted items.
         // TODO: Wrap long lines.
-        NSData *data = [[item description] dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *data;
+        if([item isKindOfClass:yml_get_symbol_class()]) {
+            NSData *sym = [[item description] dataUsingEncoding:NSUTF8StringEncoding];
+            long len = [sym length];
+            char *buf = (char*)malloc(len + 1);
+            buf[0] = ':';
+            memcpy(&buf[1], [sym bytes], len);
+            data = [NSData dataWithBytes:buf length:len + 1];
+            free(buf);
+        } else {
+            data = [[item description] dataUsingEncoding:NSUTF8StringEncoding];
+        }
         nodeID = yaml_document_add_scalar(doc, (yaml_char_t *)YAML_DEFAULT_SCALAR_TAG, (yaml_char_t*)[data bytes], [data length], YAML_ANY_SCALAR_STYLE);
     }
     return nodeID;

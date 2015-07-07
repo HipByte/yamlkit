@@ -4,18 +4,31 @@
 #include <objc/message.h>
 
 static Class hash_class = 0;
+static Class symbol_class = 0;
 
-id yml_ruby_cstr2sym(const char* cstr)
+static Class yml_get_hash_class()
+{
+    if(!hash_class) {
+        hash_class = NSClassFromString(@"Hash");
+    }
+    return hash_class;
+}
+
+static Class yml_get_symbol_class()
+{
+    if(!symbol_class) {
+        symbol_class = NSClassFromString(@"Symbol");
+    }
+    return symbol_class;
+}
+
+static id yml_ruby_cstr2sym(const char* cstr)
 {
     NSString *string = [NSString stringWithUTF8String:cstr];
     return objc_msgSend(string, @selector(to_sym), nil);
 }
 
-id yml_ruby_hash_new(void)
+static id yml_ruby_hash_new(void)
 {
-    if(!hash_class) {
-        hash_class = NSClassFromString(@"Hash");
-    }
-    return objc_msgSend(hash_class, @selector(new), nil);
+    return objc_msgSend(yml_get_hash_class(), @selector(new), nil);
 }
-
