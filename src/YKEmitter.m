@@ -73,17 +73,14 @@
     } else {
         // TODO: Add optional support for tagging emitted items.
         // TODO: Wrap long lines.
-        NSData *data;
+        NSData *data = [[item description] dataUsingEncoding:NSUTF8StringEncoding];
         if([item isKindOfClass:yml_get_symbol_class()]) {
-            NSData *sym = [[item description] dataUsingEncoding:NSUTF8StringEncoding];
-            long len = [sym length];
+            long len = [data length];
             char *buf = (char*)malloc(len + 1);
             buf[0] = ':';
-            memcpy(&buf[1], [sym bytes], len);
+            memcpy(&buf[1], [data bytes], len);
             data = [NSData dataWithBytes:buf length:len + 1];
             free(buf);
-        } else {
-            data = [[item description] dataUsingEncoding:NSUTF8StringEncoding];
         }
         nodeID = yaml_document_add_scalar(doc, (yaml_char_t *)YAML_DEFAULT_SCALAR_TAG, (yaml_char_t*)[data bytes], [data length], YAML_ANY_SCALAR_STYLE);
     }
