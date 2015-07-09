@@ -182,12 +182,7 @@ static BOOL _isBooleanFalse(NSString *aString);
 
     if(event.data.scalar.style == YAML_PLAIN_SCALAR_STYLE) {
         // Integers are automatically casted unless given a !!str tag. I think.
-        id val;
-        if(val = [self _convertToObject:stringValue]) {
-            return val;
-        } else if([obj isEqualToString:@"~"]) {
-            obj = [NSNull null];
-        }
+        obj = [self _convertToObject:stringValue];
     }
     return obj;
 }
