@@ -5,6 +5,7 @@
 
 static Class hash_class = 0;
 static Class symbol_class = 0;
+static Class scanner_class = 0;
 
 static Class yml_get_hash_class()
 {
@@ -22,13 +23,20 @@ static Class yml_get_symbol_class()
     return symbol_class;
 }
 
-static id yml_ruby_cstr2sym(const char* cstr)
+static Class yml_get_scanner_class()
 {
-    NSString *string = [NSString stringWithUTF8String:cstr];
-    return objc_msgSend(string, @selector(to_sym), nil);
+    if(!scanner_class) {
+        scanner_class = NSClassFromString(@"YAMLKitScanner");
+    }
+    return scanner_class;
 }
 
 static id yml_ruby_hash_new(void)
 {
     return objc_msgSend(yml_get_hash_class(), @selector(new), nil);
+}
+
+static id yml_ruby_call_scanner(NSString *string)
+{
+    return objc_msgSend(yml_get_scanner_class(), @selector(tokenize:), string);
 }

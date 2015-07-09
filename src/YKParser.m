@@ -183,17 +183,8 @@ static BOOL _isBooleanFalse(NSString *aString);
     if(event.data.scalar.style == YAML_PLAIN_SCALAR_STYLE) {
         // Integers are automatically casted unless given a !!str tag. I think.
         id val;
-        if(val = [self _convertToNumberFromString:stringValue]) {
+        if(val = [self _convertToObject:stringValue]) {
             return val;
-        }
-        if(val = [self _convertToSymbolFromString:stringValue]) {
-            return val;
-        }
-
-        if(_isBooleanTrue((NSString *)obj)) {
-            obj = [NSNumber numberWithBool:YES];
-        } else if(_isBooleanFalse((NSString *)obj)) {
-            obj = [NSNumber numberWithBool:NO];
         } else if([obj isEqualToString:@"~"]) {
             obj = [NSNull null];
         }
@@ -202,52 +193,9 @@ static BOOL _isBooleanFalse(NSString *aString);
     return obj;
 }
 
-- (id)_convertToSymbolFromString:(NSString*)string
+- (id)_convertToObject:(NSString*)string
 {
-    char *str = [string UTF8String];
-    if(str[0] != ':' || strlen(str) <= 1) {
-        return nil;
-    }
-    return yml_ruby_cstr2sym(&str[1]);
-}
-
-- (NSNumber*)_convertToNumberFromString:(NSString*)string
-{
-    char *str = [string UTF8String];
-    long len = strlen(str);
-    bool is_hex = false;
-    bool is_float = false;
-
-    for(int i = 0; i < len; i++) {
-        char c = str[i];
-        if(!isdigit(c)) {
-            if(str[0] == '0' && c == 'x' && !is_hex) {
-                is_hex = true;
-            } else if(c == '.' && !is_float) {
-                is_float = true;
-            } else if(is_hex && (('a' <= c && c <= 'f') || ('A' <= c && c <= 'F'))) {
-                continue;
-            } else {
-                return nil;
-            }
-        }
-    }
-
-    NSNumber *result = nil;
-    long value;
-    if(str[0] == '0' && !is_hex && !is_float) {
-        value = strtoll(str, NULL, 8);
-        result = [NSNumber numberWithLong:value];
-    } else if(is_hex) {
-        value = strtoll(str, NULL, 16);
-        result = [NSNumber numberWithLong:value];
-    } else if(is_float) {
-        result = [NSNumber numberWithDouble:[string doubleValue]];
-    } else {
-        result = [NSNumber numberWithLongLong:[string longLongValue]];
-    }
-
-    return result;
+    return yml_ruby_call_scanner(string);
 }
 
 - (NSError *)_constructErrorFromParser:(yaml_parser_t *)p
@@ -311,39 +259,4 @@ static BOOL _isBooleanFalse(NSString *aString);
     [bufferInput release];
     [super dealloc];
 }
-
 @end
-
-static BOOL _isBooleanFalse(NSString *aString)
-{
-    BOOL isFalse = NO;
-    const char *cstr = [aString UTF8String];
-    char *falseValues[] = {
-        "false", "False", "FALSE",
-        "n", "N", "NO", "No", "no",
-        "off", "Off", "OFF"
-    };
-    size_t length = sizeof(falseValues) / sizeof(*falseValues);
-    int index;
-    for(index = 0; index < length && !isFalse; index++) {
-        isFalse = strcmp(cstr, falseValues[index]) == 0;
-    }
-    return isFalse;
-}
-
-static BOOL _isBooleanTrue(NSString *aString)
-{
-    BOOL isTrue = NO;
-    const char *cstr = [aString UTF8String];
-    char *trueValues[] = {
-        "true", "TRUE", "True",
-        "y", "Y", "Yes", "yes", "YES",
-        "on", "On", "ON"
-    };
-    size_t length = sizeof(trueValues) / sizeof(*trueValues);
-    int index;
-    for(index = 0; index < length && !isTrue; index++) {
-        isTrue = strcmp(cstr, trueValues[index]) == 0;
-    }
-    return isTrue;
-}
