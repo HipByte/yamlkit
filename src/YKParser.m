@@ -188,7 +188,6 @@ static BOOL _isBooleanFalse(NSString *aString);
         } else if([obj isEqualToString:@"~"]) {
             obj = [NSNull null];
         }
-        // TODO: add date parsing.
     }
     return obj;
 }
