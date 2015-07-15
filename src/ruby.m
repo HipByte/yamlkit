@@ -33,7 +33,8 @@ static Class yml_get_scanner_class()
 
 static id yml_ruby_hash_new(void)
 {
-    return objc_msgSend(yml_get_hash_class(), @selector(new), nil);
+    id hash = objc_msgSend(yml_get_hash_class(), @selector(alloc), nil);
+    return objc_msgSend(hash, @selector(init), nil);
 }
 
 static id yml_ruby_call_scanner(NSString *string)
