@@ -189,7 +189,7 @@ static BOOL _isBooleanFalse(NSString *aString);
 
 - (id)_convertToObject:(NSString*)string
 {
-    return yml_ruby_call_scanner(string);
+    return [self tokenize:string];
 }
 
 - (NSError *)_constructErrorFromParser:(yaml_parser_t *)p

@@ -20,6 +20,7 @@
 - (BOOL)readFile:(NSString *)path;
 - (NSArray *)parse;
 - (NSArray *)parseWithError:(NSError **)e;
+- (id)tokenize:(NSString*)string; // implemented in ruby
 
 @property(readonly) BOOL readyToParse;
 
