@@ -13,6 +13,7 @@
     FILE* fileInput;
     NSData *bufferInput;
     yaml_parser_t parser;
+    id scanner;
 }
 
 - (void)reset;

@@ -68,6 +68,9 @@ static BOOL _isBooleanFalse(NSString *aString);
     NSMutableDictionary *anchor = [[NSMutableDictionary alloc] init];
     NSString *anchor_name = nil; // for mapping, sequence
 
+    id scanner_class = NSClassFromString(@"YKScanner");
+    scanner = [[[scanner_class alloc] init] autorelease];
+
     if(!readyToParse) {
         if(![[stack lastObject] isKindOfClass:[NSMutableDictionary class]]){
             if(e != NULL) {
@@ -189,7 +192,10 @@ static BOOL _isBooleanFalse(NSString *aString);
 
 - (id)_convertToObject:(NSString*)string
 {
-    return [self tokenize:string];
+    if (scanner == nil) {
+        return string;
+    }
+    return [scanner tokenize:string];
 }
 
 - (NSError *)_constructErrorFromParser:(yaml_parser_t *)p
