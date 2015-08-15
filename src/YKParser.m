@@ -65,7 +65,7 @@ static BOOL _isBooleanFalse(NSString *aString);
     int done = 0;
     id obj, temp;
     NSMutableArray *stack = [NSMutableArray array];
-    NSMutableDictionary *anchor = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *anchor = [NSMutableDictionary dictionary];
     NSString *anchor_name = nil; // for mapping, sequence
 
     id scanner_class = NSClassFromString(@"YKScanner");
