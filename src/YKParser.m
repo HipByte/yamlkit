@@ -189,10 +189,6 @@ static BOOL _isBooleanFalse(NSString *aString);
 
 - (id)_convertToObject:(NSString*)string
 {
-    if (![self respondsToSelector:@selector(tokenize)]) {
-        // Do not call Ruby method if it is not prepared
-        return string;
-    }
     return [self tokenize:string];
 }
 
