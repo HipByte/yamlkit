@@ -195,7 +195,11 @@ static BOOL _isBooleanFalse(NSString *aString);
     if (scanner == nil) {
         return string;
     }
-    return [scanner tokenize:string];
+    id obj = [scanner tokenize:string];
+    if (obj == nil) {
+        return [NSNull null];
+    }
+    return obj;
 }
 
 - (NSError *)_constructErrorFromParser:(yaml_parser_t *)p
