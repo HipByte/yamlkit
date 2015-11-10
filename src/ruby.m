@@ -24,6 +24,6 @@ static Class yml_get_symbol_class()
 
 static id yml_ruby_hash_new(void)
 {
-    id hash = objc_msgSend(yml_get_hash_class(), @selector(alloc), nil);
-    return objc_msgSend(hash, @selector(init), nil);
+    Class hash_class = yml_get_hash_class();
+    return (id)[[hash_class alloc] init];
 }
