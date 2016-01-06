@@ -25,6 +25,9 @@
         memset(&emitter, 0, sizeof(emitter));
         yaml_emitter_initialize(&emitter);
 
+        id scanner_class = NSClassFromString(@"YKScanner");
+        scanner = [[[scanner_class alloc] init] autorelease];
+
         buffer = [NSMutableData data];
         // Coincidentally, the order of arguments to CFDataAppendBytes are just right
         // such that if I pass the buffer as the data parameter, I can just use
@@ -52,6 +55,8 @@
 - (int)_writeItem:(id)item toDocument:(yaml_document_t *)doc
 {
     int nodeID = 0;
+    yaml_scalar_style_t style = YAML_ANY_SCALAR_STYLE;
+
     // #keyEnumerator covers NSMapTable/NSHashTable/NSDictionary
     if([item respondsToSelector:@selector(keyEnumerator)]) {
         // Add a mapping node.
@@ -82,7 +87,13 @@
             data = [NSData dataWithBytes:buf length:len + 1];
             free(buf);
         }
-        nodeID = yaml_document_add_scalar(doc, (yaml_char_t *)YAML_DEFAULT_SCALAR_TAG, (yaml_char_t*)[data bytes], [data length], YAML_ANY_SCALAR_STYLE);
+        else if (scanner && [item isKindOfClass:[NSString class]]) {
+            id obj = [scanner tokenize:item];
+            if (item != obj) {
+                style = YAML_SINGLE_QUOTED_SCALAR_STYLE;
+            }
+        }
+        nodeID = yaml_document_add_scalar(doc, (yaml_char_t*)YAML_DEFAULT_SCALAR_TAG, (yaml_char_t*)[data bytes], [data length], style);
     }
     return nodeID;
 }

@@ -13,6 +13,7 @@
     NSMutableData *buffer;
     BOOL usesExplicitDelimiters;
     NSStringEncoding encoding;
+    id scanner;
 }
 
 - (void)setUnicode:(BOOL)unicode;
