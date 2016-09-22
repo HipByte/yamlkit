@@ -7,13 +7,14 @@
 
 #import <Foundation/Foundation.h>
 #import "yaml.h"
+#import "YKScanner.h"
 
 @interface YKParser : NSObject {
     BOOL readyToParse;
     FILE* fileInput;
     NSData *bufferInput;
     yaml_parser_t parser;
-    id scanner;
+    YKScanner *scanner;
 }
 
 - (void)reset;

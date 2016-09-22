@@ -63,13 +63,12 @@ static BOOL _isBooleanFalse(NSString *aString);
 {
     yaml_event_t event;
     int done = 0;
-    id obj, temp;
+    id obj;
     NSMutableArray *stack = [NSMutableArray array];
     NSMutableDictionary *anchor = [NSMutableDictionary dictionary];
     NSString *anchor_name = nil; // for mapping, sequence
 
-    id scanner_class = NSClassFromString(@"YKScanner");
-    scanner = [[[scanner_class alloc] init] autorelease];
+    scanner = [[[YKScanner alloc] init] autorelease];
 
     if(!readyToParse) {
         if(![[stack lastObject] isKindOfClass:[NSMutableDictionary class]]){
@@ -195,7 +194,7 @@ static BOOL _isBooleanFalse(NSString *aString);
     if (scanner == nil) {
         return string;
     }
-    id obj = [scanner tokenize:string];
+    id obj = [scanner tokenize_from:string];
     if (obj == nil) {
         return [NSNull null];
     }

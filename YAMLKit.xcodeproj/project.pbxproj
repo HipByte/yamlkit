@@ -42,6 +42,9 @@
 		A9C44F7D1BF27F4C00C25D25 /* writer.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F731BF27F4C00C25D25 /* writer.c */; };
 		A9C44F7E1BF27F4C00C25D25 /* writer.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F731BF27F4C00C25D25 /* writer.c */; };
 		A9C44F7F1BF27F4C00C25D25 /* writer.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F731BF27F4C00C25D25 /* writer.c */; };
+		A9E16D781D9486A7009CCD99 /* YKScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E16D771D9486A7009CCD99 /* YKScanner.m */; };
+		A9E16D791D9486A7009CCD99 /* YKScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E16D771D9486A7009CCD99 /* YKScanner.m */; };
+		A9E16D7A1D9486A7009CCD99 /* YKScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E16D771D9486A7009CCD99 /* YKScanner.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -98,6 +101,8 @@
 		A9C44F801BF27F5D00C25D25 /* yaml_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yaml_private.h; path = "yaml-0.1.4/src/yaml_private.h"; sourceTree = SOURCE_ROOT; };
 		A9C44F811BF27F7400C25D25 /* yaml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yaml.h; path = "yaml-0.1.4/include/yaml.h"; sourceTree = SOURCE_ROOT; };
 		A9C44F821BF27F8600C25D25 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config.h; path = "yaml-0.1.4/config.h"; sourceTree = SOURCE_ROOT; };
+		A9E16D761D9486A7009CCD99 /* YKScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YKScanner.h; path = src/YKScanner.h; sourceTree = SOURCE_ROOT; };
+		A9E16D771D9486A7009CCD99 /* YKScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YKScanner.m; path = src/YKScanner.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +179,8 @@
 				A9C44F511BF27F1A00C25D25 /* YKEmitter.m */,
 				A9C44F521BF27F1A00C25D25 /* YKParser.h */,
 				A9C44F531BF27F1A00C25D25 /* YKParser.m */,
+				A9E16D761D9486A7009CCD99 /* YKScanner.h */,
+				A9E16D771D9486A7009CCD99 /* YKScanner.m */,
 			);
 			name = src;
 			path = YAMLKit/src;
@@ -298,6 +305,7 @@
 				A9C44F6B1BF27F4400C25D25 /* emitter.c in Sources */,
 				A9C44F781BF27F4C00C25D25 /* reader.c in Sources */,
 				A9C44F5E1BF27F1A00C25D25 /* YKParser.m in Sources */,
+				A9E16D791D9486A7009CCD99 /* YKScanner.m in Sources */,
 				A9C44F681BF27F4400C25D25 /* dumper.c in Sources */,
 				A9C44F751BF27F4C00C25D25 /* parser.c in Sources */,
 				A9C44F581BF27F1A00C25D25 /* YAMLKit.m in Sources */,
@@ -316,6 +324,7 @@
 				A9C44F6A1BF27F4400C25D25 /* emitter.c in Sources */,
 				A9C44F771BF27F4C00C25D25 /* reader.c in Sources */,
 				A9C44F5D1BF27F1A00C25D25 /* YKParser.m in Sources */,
+				A9E16D781D9486A7009CCD99 /* YKScanner.m in Sources */,
 				A9C44F671BF27F4400C25D25 /* dumper.c in Sources */,
 				A9C44F741BF27F4C00C25D25 /* parser.c in Sources */,
 				A9C44F571BF27F1A00C25D25 /* YAMLKit.m in Sources */,
@@ -334,6 +343,7 @@
 				A9C44F6C1BF27F4400C25D25 /* emitter.c in Sources */,
 				A9C44F791BF27F4C00C25D25 /* reader.c in Sources */,
 				A9C44F5F1BF27F1A00C25D25 /* YKParser.m in Sources */,
+				A9E16D7A1D9486A7009CCD99 /* YKScanner.m in Sources */,
 				A9C44F691BF27F4400C25D25 /* dumper.c in Sources */,
 				A9C44F761BF27F4C00C25D25 /* parser.c in Sources */,
 				A9C44F591BF27F1A00C25D25 /* YAMLKit.m in Sources */,
@@ -544,6 +554,7 @@
 				A9C44F4A1BF27E4200C25D25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

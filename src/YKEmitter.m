@@ -88,7 +88,7 @@
             free(buf);
         }
         else if (scanner && [item isKindOfClass:[NSString class]]) {
-            id obj = [scanner tokenize:item];
+            id obj = [scanner tokenize_from:item];
             if (item != obj) {
                 style = YAML_SINGLE_QUOTED_SCALAR_STYLE;
             }
