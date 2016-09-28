@@ -6,6 +6,7 @@
 //
 
 #import "YKEmitter.h"
+#import "YKScanner.h"
 
 #include "ruby.m"
 
