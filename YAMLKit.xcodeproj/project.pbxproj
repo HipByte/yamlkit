@@ -18,33 +18,33 @@
 		A9C44F5D1BF27F1A00C25D25 /* YKParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F531BF27F1A00C25D25 /* YKParser.m */; };
 		A9C44F5E1BF27F1A00C25D25 /* YKParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F531BF27F1A00C25D25 /* YKParser.m */; };
 		A9C44F5F1BF27F1A00C25D25 /* YKParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F531BF27F1A00C25D25 /* YKParser.m */; };
-		A9C44F641BF27F4400C25D25 /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F601BF27F4400C25D25 /* api.c */; };
-		A9C44F651BF27F4400C25D25 /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F601BF27F4400C25D25 /* api.c */; };
-		A9C44F661BF27F4400C25D25 /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F601BF27F4400C25D25 /* api.c */; };
-		A9C44F671BF27F4400C25D25 /* dumper.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F611BF27F4400C25D25 /* dumper.c */; };
-		A9C44F681BF27F4400C25D25 /* dumper.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F611BF27F4400C25D25 /* dumper.c */; };
-		A9C44F691BF27F4400C25D25 /* dumper.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F611BF27F4400C25D25 /* dumper.c */; };
-		A9C44F6A1BF27F4400C25D25 /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F621BF27F4400C25D25 /* emitter.c */; };
-		A9C44F6B1BF27F4400C25D25 /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F621BF27F4400C25D25 /* emitter.c */; };
-		A9C44F6C1BF27F4400C25D25 /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F621BF27F4400C25D25 /* emitter.c */; };
-		A9C44F6D1BF27F4400C25D25 /* loader.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F631BF27F4400C25D25 /* loader.c */; };
-		A9C44F6E1BF27F4400C25D25 /* loader.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F631BF27F4400C25D25 /* loader.c */; };
-		A9C44F6F1BF27F4400C25D25 /* loader.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F631BF27F4400C25D25 /* loader.c */; };
-		A9C44F741BF27F4C00C25D25 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F701BF27F4C00C25D25 /* parser.c */; };
-		A9C44F751BF27F4C00C25D25 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F701BF27F4C00C25D25 /* parser.c */; };
-		A9C44F761BF27F4C00C25D25 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F701BF27F4C00C25D25 /* parser.c */; };
-		A9C44F771BF27F4C00C25D25 /* reader.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F711BF27F4C00C25D25 /* reader.c */; };
-		A9C44F781BF27F4C00C25D25 /* reader.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F711BF27F4C00C25D25 /* reader.c */; };
-		A9C44F791BF27F4C00C25D25 /* reader.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F711BF27F4C00C25D25 /* reader.c */; };
-		A9C44F7A1BF27F4C00C25D25 /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F721BF27F4C00C25D25 /* scanner.c */; };
-		A9C44F7B1BF27F4C00C25D25 /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F721BF27F4C00C25D25 /* scanner.c */; };
-		A9C44F7C1BF27F4C00C25D25 /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F721BF27F4C00C25D25 /* scanner.c */; };
-		A9C44F7D1BF27F4C00C25D25 /* writer.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F731BF27F4C00C25D25 /* writer.c */; };
-		A9C44F7E1BF27F4C00C25D25 /* writer.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F731BF27F4C00C25D25 /* writer.c */; };
-		A9C44F7F1BF27F4C00C25D25 /* writer.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C44F731BF27F4C00C25D25 /* writer.c */; };
 		A9E16D781D9486A7009CCD99 /* YKScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E16D771D9486A7009CCD99 /* YKScanner.m */; };
 		A9E16D791D9486A7009CCD99 /* YKScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E16D771D9486A7009CCD99 /* YKScanner.m */; };
 		A9E16D7A1D9486A7009CCD99 /* YKScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E16D771D9486A7009CCD99 /* YKScanner.m */; };
+		A9E9DBA81DC15364000FEC16 /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA01DC15364000FEC16 /* api.c */; };
+		A9E9DBA91DC15364000FEC16 /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA01DC15364000FEC16 /* api.c */; };
+		A9E9DBAA1DC15364000FEC16 /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA01DC15364000FEC16 /* api.c */; };
+		A9E9DBAB1DC15364000FEC16 /* dumper.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA11DC15364000FEC16 /* dumper.c */; };
+		A9E9DBAC1DC15364000FEC16 /* dumper.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA11DC15364000FEC16 /* dumper.c */; };
+		A9E9DBAD1DC15364000FEC16 /* dumper.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA11DC15364000FEC16 /* dumper.c */; };
+		A9E9DBAE1DC15364000FEC16 /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA21DC15364000FEC16 /* emitter.c */; };
+		A9E9DBAF1DC15364000FEC16 /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA21DC15364000FEC16 /* emitter.c */; };
+		A9E9DBB01DC15364000FEC16 /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA21DC15364000FEC16 /* emitter.c */; };
+		A9E9DBB11DC15364000FEC16 /* loader.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA31DC15364000FEC16 /* loader.c */; };
+		A9E9DBB21DC15364000FEC16 /* loader.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA31DC15364000FEC16 /* loader.c */; };
+		A9E9DBB31DC15364000FEC16 /* loader.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA31DC15364000FEC16 /* loader.c */; };
+		A9E9DBB41DC15364000FEC16 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA41DC15364000FEC16 /* parser.c */; };
+		A9E9DBB51DC15364000FEC16 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA41DC15364000FEC16 /* parser.c */; };
+		A9E9DBB61DC15364000FEC16 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA41DC15364000FEC16 /* parser.c */; };
+		A9E9DBB71DC15364000FEC16 /* reader.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA51DC15364000FEC16 /* reader.c */; };
+		A9E9DBB81DC15364000FEC16 /* reader.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA51DC15364000FEC16 /* reader.c */; };
+		A9E9DBB91DC15364000FEC16 /* reader.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA51DC15364000FEC16 /* reader.c */; };
+		A9E9DBBA1DC15364000FEC16 /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA61DC15364000FEC16 /* scanner.c */; };
+		A9E9DBBB1DC15364000FEC16 /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA61DC15364000FEC16 /* scanner.c */; };
+		A9E9DBBC1DC15364000FEC16 /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA61DC15364000FEC16 /* scanner.c */; };
+		A9E9DBBD1DC15364000FEC16 /* writer.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA71DC15364000FEC16 /* writer.c */; };
+		A9E9DBBE1DC15364000FEC16 /* writer.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA71DC15364000FEC16 /* writer.c */; };
+		A9E9DBBF1DC15364000FEC16 /* writer.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E9DBA71DC15364000FEC16 /* writer.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,19 +90,19 @@
 		A9C44F511BF27F1A00C25D25 /* YKEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YKEmitter.m; path = src/YKEmitter.m; sourceTree = SOURCE_ROOT; };
 		A9C44F521BF27F1A00C25D25 /* YKParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YKParser.h; path = src/YKParser.h; sourceTree = SOURCE_ROOT; };
 		A9C44F531BF27F1A00C25D25 /* YKParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YKParser.m; path = src/YKParser.m; sourceTree = SOURCE_ROOT; };
-		A9C44F601BF27F4400C25D25 /* api.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = api.c; path = "yaml-0.1.4/src/api.c"; sourceTree = SOURCE_ROOT; };
-		A9C44F611BF27F4400C25D25 /* dumper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = dumper.c; path = "yaml-0.1.4/src/dumper.c"; sourceTree = SOURCE_ROOT; };
-		A9C44F621BF27F4400C25D25 /* emitter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = emitter.c; path = "yaml-0.1.4/src/emitter.c"; sourceTree = SOURCE_ROOT; };
-		A9C44F631BF27F4400C25D25 /* loader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = loader.c; path = "yaml-0.1.4/src/loader.c"; sourceTree = SOURCE_ROOT; };
-		A9C44F701BF27F4C00C25D25 /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = parser.c; path = "yaml-0.1.4/src/parser.c"; sourceTree = SOURCE_ROOT; };
-		A9C44F711BF27F4C00C25D25 /* reader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = reader.c; path = "yaml-0.1.4/src/reader.c"; sourceTree = SOURCE_ROOT; };
-		A9C44F721BF27F4C00C25D25 /* scanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = scanner.c; path = "yaml-0.1.4/src/scanner.c"; sourceTree = SOURCE_ROOT; };
-		A9C44F731BF27F4C00C25D25 /* writer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = writer.c; path = "yaml-0.1.4/src/writer.c"; sourceTree = SOURCE_ROOT; };
-		A9C44F801BF27F5D00C25D25 /* yaml_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yaml_private.h; path = "yaml-0.1.4/src/yaml_private.h"; sourceTree = SOURCE_ROOT; };
-		A9C44F811BF27F7400C25D25 /* yaml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yaml.h; path = "yaml-0.1.4/include/yaml.h"; sourceTree = SOURCE_ROOT; };
-		A9C44F821BF27F8600C25D25 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config.h; path = "yaml-0.1.4/config.h"; sourceTree = SOURCE_ROOT; };
 		A9E16D761D9486A7009CCD99 /* YKScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YKScanner.h; path = src/YKScanner.h; sourceTree = SOURCE_ROOT; };
 		A9E16D771D9486A7009CCD99 /* YKScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YKScanner.m; path = src/YKScanner.m; sourceTree = SOURCE_ROOT; };
+		A9E9DB9D1DC15333000FEC16 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config.h; path = "yaml-0.1.7/config.h"; sourceTree = "<group>"; };
+		A9E9DB9E1DC15341000FEC16 /* yaml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yaml.h; path = "yaml-0.1.7/include/yaml.h"; sourceTree = "<group>"; };
+		A9E9DB9F1DC15355000FEC16 /* yaml_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yaml_private.h; path = "yaml-0.1.7/src/yaml_private.h"; sourceTree = "<group>"; };
+		A9E9DBA01DC15364000FEC16 /* api.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = api.c; path = "yaml-0.1.7/src/api.c"; sourceTree = "<group>"; };
+		A9E9DBA11DC15364000FEC16 /* dumper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = dumper.c; path = "yaml-0.1.7/src/dumper.c"; sourceTree = "<group>"; };
+		A9E9DBA21DC15364000FEC16 /* emitter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = emitter.c; path = "yaml-0.1.7/src/emitter.c"; sourceTree = "<group>"; };
+		A9E9DBA31DC15364000FEC16 /* loader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = loader.c; path = "yaml-0.1.7/src/loader.c"; sourceTree = "<group>"; };
+		A9E9DBA41DC15364000FEC16 /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = parser.c; path = "yaml-0.1.7/src/parser.c"; sourceTree = "<group>"; };
+		A9E9DBA51DC15364000FEC16 /* reader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = reader.c; path = "yaml-0.1.7/src/reader.c"; sourceTree = "<group>"; };
+		A9E9DBA61DC15364000FEC16 /* scanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = scanner.c; path = "yaml-0.1.7/src/scanner.c"; sourceTree = "<group>"; };
+		A9E9DBA71DC15364000FEC16 /* writer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = writer.c; path = "yaml-0.1.7/src/writer.c"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +143,7 @@
 		A944B41116B2D36800F4CD4D = {
 			isa = PBXGroup;
 			children = (
-				A944B47C16B2D46000F4CD4D /* yaml-0.1.4 */,
+				A9E9DB9C1DC152D2000FEC16 /* yaml-0.1.7 */,
 				A944B42D16B2D39600F4CD4D /* src */,
 				A93338AF16B2DC9B007A8B78 /* Other Sources */,
 				A944B41E16B2D36800F4CD4D /* Frameworks */,
@@ -186,23 +186,22 @@
 			path = YAMLKit/src;
 			sourceTree = "<group>";
 		};
-		A944B47C16B2D46000F4CD4D /* yaml-0.1.4 */ = {
+		A9E9DB9C1DC152D2000FEC16 /* yaml-0.1.7 */ = {
 			isa = PBXGroup;
 			children = (
-				A9C44F821BF27F8600C25D25 /* config.h */,
-				A9C44F811BF27F7400C25D25 /* yaml.h */,
-				A9C44F801BF27F5D00C25D25 /* yaml_private.h */,
-				A9C44F601BF27F4400C25D25 /* api.c */,
-				A9C44F611BF27F4400C25D25 /* dumper.c */,
-				A9C44F621BF27F4400C25D25 /* emitter.c */,
-				A9C44F631BF27F4400C25D25 /* loader.c */,
-				A9C44F701BF27F4C00C25D25 /* parser.c */,
-				A9C44F711BF27F4C00C25D25 /* reader.c */,
-				A9C44F721BF27F4C00C25D25 /* scanner.c */,
-				A9C44F731BF27F4C00C25D25 /* writer.c */,
+				A9E9DB9D1DC15333000FEC16 /* config.h */,
+				A9E9DB9E1DC15341000FEC16 /* yaml.h */,
+				A9E9DB9F1DC15355000FEC16 /* yaml_private.h */,
+				A9E9DBA01DC15364000FEC16 /* api.c */,
+				A9E9DBA11DC15364000FEC16 /* dumper.c */,
+				A9E9DBA21DC15364000FEC16 /* emitter.c */,
+				A9E9DBA31DC15364000FEC16 /* loader.c */,
+				A9E9DBA41DC15364000FEC16 /* parser.c */,
+				A9E9DBA51DC15364000FEC16 /* reader.c */,
+				A9E9DBA61DC15364000FEC16 /* scanner.c */,
+				A9E9DBA71DC15364000FEC16 /* writer.c */,
 			);
-			name = "yaml-0.1.4";
-			path = YAMLKit/src;
+			name = "yaml-0.1.7";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,17 +296,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9C44F651BF27F4400C25D25 /* api.c in Sources */,
-				A9C44F7E1BF27F4C00C25D25 /* writer.c in Sources */,
-				A9C44F6E1BF27F4400C25D25 /* loader.c in Sources */,
-				A9C44F7B1BF27F4C00C25D25 /* scanner.c in Sources */,
+				A9E9DBB51DC15364000FEC16 /* parser.c in Sources */,
+				A9E9DBB21DC15364000FEC16 /* loader.c in Sources */,
+				A9E9DBB81DC15364000FEC16 /* reader.c in Sources */,
+				A9E9DBBB1DC15364000FEC16 /* scanner.c in Sources */,
+				A9E9DBAC1DC15364000FEC16 /* dumper.c in Sources */,
+				A9E9DBAF1DC15364000FEC16 /* emitter.c in Sources */,
 				A9C44F5B1BF27F1A00C25D25 /* YKEmitter.m in Sources */,
-				A9C44F6B1BF27F4400C25D25 /* emitter.c in Sources */,
-				A9C44F781BF27F4C00C25D25 /* reader.c in Sources */,
 				A9C44F5E1BF27F1A00C25D25 /* YKParser.m in Sources */,
 				A9E16D791D9486A7009CCD99 /* YKScanner.m in Sources */,
-				A9C44F681BF27F4400C25D25 /* dumper.c in Sources */,
-				A9C44F751BF27F4C00C25D25 /* parser.c in Sources */,
+				A9E9DBA91DC15364000FEC16 /* api.c in Sources */,
+				A9E9DBBE1DC15364000FEC16 /* writer.c in Sources */,
 				A9C44F581BF27F1A00C25D25 /* YAMLKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,17 +315,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9C44F641BF27F4400C25D25 /* api.c in Sources */,
-				A9C44F7D1BF27F4C00C25D25 /* writer.c in Sources */,
-				A9C44F6D1BF27F4400C25D25 /* loader.c in Sources */,
-				A9C44F7A1BF27F4C00C25D25 /* scanner.c in Sources */,
+				A9E9DBB41DC15364000FEC16 /* parser.c in Sources */,
+				A9E9DBB11DC15364000FEC16 /* loader.c in Sources */,
+				A9E9DBB71DC15364000FEC16 /* reader.c in Sources */,
+				A9E9DBBA1DC15364000FEC16 /* scanner.c in Sources */,
+				A9E9DBAB1DC15364000FEC16 /* dumper.c in Sources */,
+				A9E9DBAE1DC15364000FEC16 /* emitter.c in Sources */,
 				A9C44F5A1BF27F1A00C25D25 /* YKEmitter.m in Sources */,
-				A9C44F6A1BF27F4400C25D25 /* emitter.c in Sources */,
-				A9C44F771BF27F4C00C25D25 /* reader.c in Sources */,
 				A9C44F5D1BF27F1A00C25D25 /* YKParser.m in Sources */,
 				A9E16D781D9486A7009CCD99 /* YKScanner.m in Sources */,
-				A9C44F671BF27F4400C25D25 /* dumper.c in Sources */,
-				A9C44F741BF27F4C00C25D25 /* parser.c in Sources */,
+				A9E9DBA81DC15364000FEC16 /* api.c in Sources */,
+				A9E9DBBD1DC15364000FEC16 /* writer.c in Sources */,
 				A9C44F571BF27F1A00C25D25 /* YAMLKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,17 +334,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9C44F661BF27F4400C25D25 /* api.c in Sources */,
-				A9C44F7F1BF27F4C00C25D25 /* writer.c in Sources */,
-				A9C44F6F1BF27F4400C25D25 /* loader.c in Sources */,
-				A9C44F7C1BF27F4C00C25D25 /* scanner.c in Sources */,
+				A9E9DBB61DC15364000FEC16 /* parser.c in Sources */,
+				A9E9DBB31DC15364000FEC16 /* loader.c in Sources */,
+				A9E9DBB91DC15364000FEC16 /* reader.c in Sources */,
+				A9E9DBBC1DC15364000FEC16 /* scanner.c in Sources */,
+				A9E9DBAD1DC15364000FEC16 /* dumper.c in Sources */,
+				A9E9DBB01DC15364000FEC16 /* emitter.c in Sources */,
 				A9C44F5C1BF27F1A00C25D25 /* YKEmitter.m in Sources */,
-				A9C44F6C1BF27F4400C25D25 /* emitter.c in Sources */,
-				A9C44F791BF27F4C00C25D25 /* reader.c in Sources */,
 				A9C44F5F1BF27F1A00C25D25 /* YKParser.m in Sources */,
 				A9E16D7A1D9486A7009CCD99 /* YKScanner.m in Sources */,
-				A9C44F691BF27F4400C25D25 /* dumper.c in Sources */,
-				A9C44F761BF27F4C00C25D25 /* parser.c in Sources */,
+				A9E9DBAA1DC15364000FEC16 /* api.c in Sources */,
+				A9E9DBBF1DC15364000FEC16 /* writer.c in Sources */,
 				A9C44F591BF27F1A00C25D25 /* YAMLKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
