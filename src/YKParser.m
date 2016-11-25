@@ -11,9 +11,6 @@
 
 #include "ruby.m"
 
-static BOOL _isBooleanTrue(NSString *aString);
-static BOOL _isBooleanFalse(NSString *aString);
-
 @interface YKParser (YKParserPrivateMethods)
 
 - (id)_interpretObjectFromEvent:(yaml_event_t)event;
