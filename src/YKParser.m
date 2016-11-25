@@ -161,8 +161,10 @@
     } else if([temp isKindOfClass:[NSDictionary class]]) {
         [stack addObject:obj];
     } else if([temp isKindOfClass:[NSString class]] || [temp isKindOfClass:[NSValue class]])  {
+        // Need to retain & release for removeLastObject
         [temp retain];
         [stack removeLastObject];
+        [temp autorelease];
         if(![[stack lastObject] isKindOfClass:[NSMutableDictionary class]]){
             if(e != NULL) {
                 *e = [self _constructErrorFromParser:NULL];
