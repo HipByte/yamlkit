@@ -94,21 +94,21 @@
                 return nil;
             }
             if (event.data.scalar.anchor) {
-                [anchor setObject:obj forKey:[NSString stringWithUTF8String:event.data.scalar.anchor]];
+                [anchor setObject:obj forKey:[NSString stringWithUTF8String:(const char *)event.data.scalar.anchor]];
             }
             break;
 
           case YAML_SEQUENCE_START_EVENT:
             [stack addObject:[NSMutableArray array]];
             if (event.data.sequence_start.anchor) {
-                anchor_name = [NSString stringWithUTF8String:event.data.sequence_start.anchor];
+                anchor_name = [NSString stringWithUTF8String:(const char *)event.data.sequence_start.anchor];
             }
             break;
 
           case YAML_MAPPING_START_EVENT:
             [stack addObject:yml_ruby_hash_new()];
             if (event.data.mapping_start.anchor) {
-                anchor_name = [NSString stringWithUTF8String:event.data.mapping_start.anchor];
+                anchor_name = [NSString stringWithUTF8String:(const char *)event.data.mapping_start.anchor];
             }
             break;
 
@@ -131,7 +131,7 @@
 
           case YAML_ALIAS_EVENT:
             if (event.data.alias.anchor) {
-                obj = [anchor objectForKey:[NSString stringWithUTF8String:event.data.alias.anchor]];
+                obj = [anchor objectForKey:[NSString stringWithUTF8String:(const char *)event.data.alias.anchor]];
                 [self _setObject:obj In:stack WithError:e];
                 if (e != nil) {
                     return nil;
